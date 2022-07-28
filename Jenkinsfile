@@ -20,10 +20,20 @@ pipeline{
             }
         }
         
-        stage('Deploying to k8s') {
+        // stage('Deploying to k8s') {
+        //     steps {
+        //         script {
+        //             kubernetesDeploy(configs: 'deploymentservice.yml', kubeconfigId: 'kubernetes')
+        //         }
+        //     }
+        // }
+        
+        stage('Deploying with Helm Chart') {
             steps {
                 script {
-                    kubernetesDeploy(configs: 'deploymentservice.yml', kubeconfigId: 'kubernetes')
+                    sh 'helm install --debug --dry-run example-project example-project'
+                    sh 'helm install example-project example-project'
+                    kubernetesDeploy(kubeconfigId: 'kubernetes')
                 }
             }
         }
