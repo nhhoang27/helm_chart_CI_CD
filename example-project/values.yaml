@@ -1,0 +1,11 @@
+# Default values for example-project.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Release-wide Values
+replicas: 3
+version: 'plain-text'
+
+# Service Specific Values
+hello:
+  image: 172.16.10.109:5000/hello-kube
