@@ -10,13 +10,13 @@ pipeline{
 
         stage('Build') {
             steps {
-                sh 'docker build -t 172.16.10.109:5000/hello-kube:latest .'
+                sh 'docker build -t 172.16.10.109:5000/nodeapp:latest .'
             }
         }
 
         stage('Push') {
             steps {
-                sh 'docker push 172.16.10.109:5000/hello-kube:latest'
+                sh 'docker push 172.16.10.109:5000/nodeapp:latest'
             }
         }
         
