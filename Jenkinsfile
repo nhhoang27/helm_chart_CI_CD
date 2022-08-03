@@ -31,9 +31,12 @@ pipeline{
         stage('Deploying with Helm Chart') {
             steps {
                 script {
-                    sh 'helm install --debug --dry-run example-project example-project'
-                    sh 'helm install example-project example-project'
-                    kubernetesDeploy(kubeconfigId: 'kubernetes')
+//                     sh 'helm install --debug --dry-run example-project example-project'
+//                     sh 'helm install example-project example-project'
+//                     kubernetesDeploy(kubeconfigId: 'kubernetes')
+                    container('helm') {
+                        sh "helm ls"
+                    }
                 }
             }
         }
