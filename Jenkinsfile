@@ -31,8 +31,10 @@ pipeline{
         stage('Deploying with Helm Chart') {
             steps {
                 script {
+                    openshift.withCluster() {
 //                     sh "helm upgrade --install example-project example-project"
-                    sh "helm ls"
+                        sh "helm ls"
+                    }
                 }
             }
         }
