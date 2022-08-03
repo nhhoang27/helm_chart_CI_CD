@@ -35,7 +35,7 @@ pipeline{
 //                     sh 'helm install example-project example-project'
 //                     kubernetesDeploy(kubeconfigId: 'kubernetes')
                     container('helm') {
-                        sh "helm ls"
+                        sh 'helm ls'
                     }
                 }
             }
