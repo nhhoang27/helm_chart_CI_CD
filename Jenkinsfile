@@ -32,7 +32,7 @@ pipeline{
             steps {
                 script {
 //                     sh "helm upgrade --install --token kubernetes example-project example-project "
-                        helmInstall(namespace, "kubernetes")
+                        helmInstall(example-project, "kubernetes")
                 }
             }
         }
