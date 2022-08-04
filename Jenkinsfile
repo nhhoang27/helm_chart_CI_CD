@@ -31,8 +31,8 @@ pipeline{
         stage('Deploying with Helm Chart') {
             steps {
                 script {
-//                     sh "helm upgrade --install example-project example-project"
-                        sh "helm ls"
+                    sh "helm upgrade --install example-project example-project --token kubernetes"
+//                         sh "helm ls"
                 }
             }
         }
