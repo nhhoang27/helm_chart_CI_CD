@@ -33,7 +33,7 @@ pipeline{
                 script {
 //                     sh "helm upgrade --install example-project example-project"
 //                         helmDeploy(example-project, "kubernetes")
-                    withCredentials([file(credentialsId: 'kubernetes', )]) {
+                    withCredentials([file(credentialsId: 'worker-node-1', )]) {
 //                         sh "helm upgrade --install example-project example-project"
                         sh "helm ls"
                     }
